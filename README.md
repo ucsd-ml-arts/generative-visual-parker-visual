@@ -4,7 +4,7 @@ Parker Addison, pgaddiso@ucsd.edu
 
 ## Abstract
 
-Within recent years, GAN technology has allowed people to generate convincing, yet fake humans faces with incredible speed.  Advancements such as StyleGAN [1] have greatly bolstered the believability of these generated faces, prompting [fake-face entertainment](thispersondoesnotexist.com) [2], [fake-face business uses](generated.photos) [3], and [fake-face legal misuses](https://apnews.com/bc2f19097a4c4fffaa00de6770b8a60d) [4].  However, with most of these models, the generated images are still not yet on par with what our brains (which have, presumably, seen human faces all our lives) have come to expect.  Instead, the result is commonly referred to as *uncanny*.  Looking at the generated image, the mind can tell that *something just isn't right*.  Upon closer inspection, it may be that the teeth or melded together, or the eyes are slightly different shapes, or the skin has strange presence and/or absence of folds and stretch marks.  At the end of the day, despite all of the *wrongness* that the brain sees in the image, there is still slight comfort to be found in the realization that these people don't actually exist.
+Within recent years, GAN technology has allowed people to generate convincing, yet fake humans faces with incredible speed.  Advancements such as StyleGAN [1] have greatly bolstered the believability of these generated faces, prompting [fake-face entertainment](https://thispersondoesnotexist.com) [2], [fake-face business uses](https://generated.photos) [3], and [fake-face legal misuses](https://apnews.com/bc2f19097a4c4fffaa00de6770b8a60d) [4].  However, with most of these models, the generated images are still not yet on par with what our brains (which have, presumably, seen human faces all our lives) have come to expect.  Instead, the result is commonly referred to as *uncanny*.  Looking at the generated image, the mind can tell that *something just isn't right*.  Upon closer inspection, it may be that the teeth or melded together, or the eyes are slightly different shapes, or the skin has strange presence and/or absence of folds and stretch marks.  At the end of the day, despite all of the *wrongness* that the brain sees in the image, there is still slight comfort to be found in the realization that these people don't actually exist.
 
 But what if they did?  How would it feel to see *yourself* as the output of a GAN?
 
@@ -17,11 +17,11 @@ The goal of this art piece is to deliver on those questions—to create a model 
 - Downloaded 2000 unique images from thispersondoesnotexist.com (TPDNE) (which uses [StyleGAN](https://github.com/NVlabs/stylegan)), cropped to 250px for a training 'B' group
 - Downloaded [CycleGAN's official PyTorch code](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) [6] to train an unpaired model between 'A' (real faces)  and 'B' (fake faces)
 - Trained my CycleGAN model, '*face2fake*', to 165 iterations (~8 minutes per iteration)
-  - Checkpoints of every 10th epoch can be found in `./checkpoints/face2fake/` (originally saved every 5th epoch, but I ran out of allowed disk space!)
+  - Checkpoints ~~of every 10th epoch~~ for the latest epoch can be found in `./checkpoints/face2fake/`
 
 ## Code
 
-The bulk of my "code" is a Python script to download unique images from TPDNE (see [`tpdne_download.py`](./tpdne_download.py)).  The rest of the process is simply the general CycleGAN process.
+The bulk of my "code" is a Python script to download unique images from TPDNE (see [`tpdne-download.py`](./tpdne-download.py)).  The rest of the process is simply the general CycleGAN process.
 
 1. Clone the CycleGAN Pytorch implementation
 ```bash
@@ -93,7 +93,7 @@ $ python test.py --dataroot datasets/face2fake/testA --name face2fake --model te
 
 ## Results
 
-See `index.html`
+See [`index.html`](https://ucsd-ml-arts.github.io/generative-visual-parker-visual/)
 
 I demonstrated the face2fake generator on Barack Obama, Bill Clinton, Ivanka Trump, Nicolas Cage, Serena Williams, Jackie Chan, Robert Twomey, and Parker Addison.  I show the real face and the generator output at 10 epochs, 100 epochs, and 160 epochs.
 
