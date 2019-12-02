@@ -42,7 +42,7 @@ $ mkdir dataset/face2fake/trainB
 $ 
 $ # Move a random sample of your real faces dataset into your model's trainA
 $ # folder.  Specify how many you want in your training set.
-$ **CODE TO CREATE RANDOM SAMPLE AND MOVE**
+$ ls | shuf -n 2000 | xargs -i mv {} ./dataset/face2fake/trainA/
 $
 $ # Download faces from thispersondoesnotexist, specify the path to your trainB
 $ # folder, and specify how many images you want to download.
