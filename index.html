@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>face2fake</title>
+
+    <style>
+        html,
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fed;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+
+        }
+
+        .row img {
+            width: 100%;
+            margin: 0;
+            height: 100%;
+
+            transition: transform 0.3s;
+        }
+
+        .row img.active {
+            position: absolute;
+            top: calc((100vh - 100vmin) / 2);
+            left: calc((100vw - 100vmin) / 2);
+            height: 100vmin;
+            width: 100vmin;
+        }
+
+        .row p {
+            font-weight: lighter;
+            margin: 1em;
+            height: 3em;
+            border-bottom: 4px solid black;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>face2fake</h1>
+
+    <h3>Real Faces</h3>
+
+    <div class="row">
+        <img src="img/real/obama.jpg" alt="">
+        <img src="img/real/Bill_Clinton_real.png" alt="">
+        <img src="img/real/ivanka.jpg" alt="">
+        <img src="img/real/cage.jpg" alt="">
+        <img src="img/real/serena-williams.jpg" alt="">
+        <img src="img/real/jackie.jpg" alt="">
+        <img src="img/real/twomey.jpg" alt="">
+        <img src="img/real/parker.png" alt="">
+    </div>
+
+    <div class="row">
+        <p>Barack Obama</p>
+        <p>Bill Clinton</p>
+        <p>Ivanka Trump</p>
+        <p>Nicolas Cage</p>
+        <p>Serena Williams</p>
+        <p>Jackie Chan</p>
+        <p>Robert Twomey</p>
+        <p>Parker Addison</p>
+    </div>
+
+    <h3>10 epochs</h3>
+
+    <div class="row">
+        <img src="img/10ep/obama_fake.png" alt="">
+        <img src="img/10ep/clinton_fake.png" alt="">
+        <img src="img/10ep/ivanka_fake.png" alt="">
+        <img src="img/10ep/cage_fake.png" alt="">
+        <img src="img/10ep/serena-williams_fake.png" alt="">
+        <img src="img/10ep/jackie_fake.png" alt="">
+        <img src="img/10ep/twomey_fake.png" alt="">
+        <img src="img/10ep/parker_fake.png" alt="">
+    </div>
+
+
+    <h3>100 epochs</h3>
+
+    <div class="row">
+        <img src="img/100ep/obama_fake.png" alt="">
+        <img src="img/100ep/clinton_fake.png" alt="">
+        <img src="img/100ep/ivanka_fake.png" alt="">
+        <img src="img/100ep/cage_fake.png" alt="">
+        <img src="img/100ep/serena-williams_fake.png" alt="">
+        <img src="img/100ep/jackie_fake.png" alt="">
+        <img src="img/100ep/twomey_fake.png" alt="">
+        <img src="img/100ep/parker_fake.png" alt="">
+    </div>
+
+
+    <h3>160 epochs</h3>
+
+    <div class="row">
+        <img src="img/160ep/obama_fake.png" alt="">
+        <img src="img/160ep/clinton_fake.png" alt="">
+        <img src="img/160ep/ivanka_fake.png" alt="">
+        <img src="img/160ep/cage_fake.png" alt="">
+        <img src="img/160ep/serena-williams_fake.png" alt="">
+        <img src="img/160ep/jackie_fake.png" alt="">
+        <img src="img/160ep/twomey_fake.png" alt="">
+        <img src="img/160ep/parker_fake.png" alt="">
+    </div>
+
+</body>
+
+<script>
+
+    let imgs = document.querySelectorAll(".row img");
+
+    function removeAllActive() {
+
+        imgs.forEach(function (e) {
+            e.classList.remove("active");
+        });
+    }
+
+    imgs.forEach(function (elem) {
+
+        elem.addEventListener("click", function () {
+
+            isActive = this.classList.contains("active");
+
+            removeAllActive();
+
+            if (!isActive) {
+                this.classList.add("active");
+            }
+
+        });
+    });
+
+
+</script>
+
+</html>
